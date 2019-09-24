@@ -46,6 +46,7 @@ fi
 if [ -n "${DOCKER_IMAGE_TAG+set}" ]
 then
   sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
+  echo $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG
   sh -c "docker push $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
 else
   sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$IMAGE_TAG"
