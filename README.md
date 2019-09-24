@@ -12,6 +12,15 @@ This Github Action does a fixed list of actions:
 
 Such that you don't have to run 5 different actions, which require the same environment setup (basically Docker) to be repeated again and again.
 
+## Building
+Build and push to Dockerhub for use:
+```bash
+docker build -t airwalkconsulting/github-action-dockerhub .
+docker login
+docker push airwalkconsulting/github-action-dockerhub
+
+```
+
 
 ## Usage
 
@@ -53,7 +62,7 @@ action "build-and-push-to-docker-hub" {
 
 ```
 action "build-and-push-to-my-registry" {
-  uses = "pangzineng/Github-Action-One-Click-Docker@master"
+  uses = "airwalkconsulting/github-action-dockerhub@master"
   args = "-f my.Dockerfile ./my/custom/folder/"
   secrets = [
     "DOCKER_USERNAME", 
